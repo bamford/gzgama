@@ -1,0 +1,12 @@
+1   CATAID          GAMA CATA ID
+2   FILENAMENATIVE  3-colour PNG image filename
+3   FILENAMEINVERT  inverted 3-colour PNG image filename
+4   TELESCOPE       telescope for observations (VST 2.6m)
+5   SURVEY          survey name (GAMA-KiDS)
+6   RA              right ascension
+7   DEC             declination
+8   PETRORADARCSEC  Petrosian radius (arcsec, r-band)
+9   PETRORADKPC     Petrosian radius (kpc, r-band)
+10  PETROAPPMAG     Extinction-corrected SDSS DR7 apparent Petrosian mag (r-band)
+11  PETROABSMAG     Extinction-corrected SDSS DR7 absolute Petrosian mag (r-band)
+
