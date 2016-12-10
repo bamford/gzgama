@@ -30,7 +30,7 @@ for region in ('09', '12', '15'):
            for x in gama['FILENAMENATIVE']]
     t['location.thumbnail'] = loc
 
-    t['survey'] = gama['SURVEY']
+    t['metadata.survey'] = 'gama{}'.format(region)
 
     t['metadata.provided_image_id'] = gama['CATAID']
 
@@ -43,8 +43,6 @@ for region in ('09', '12', '15'):
 
     t['metadata.petrorad_r'] = gama['PETRORADARCSEC']
     t['metadata.absolute_size'] = gama['PETRORADKPC']
-
-    t['metadata.gama_region'] = '{}'.format(region)
 
     t['metadata.retire_at'] = 40
 
