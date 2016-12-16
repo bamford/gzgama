@@ -75,14 +75,16 @@ for region in ('09', '12', '15'):
         r['type'] = 'subject'
         r['group_name'] = survey
         r['group_type'] = 'survey'
+        r['coords'] = [row['coords.0'], row['coords.1']]
         for col in row.colnames:
             cols = col.split('.')
-            rsub = r
-            for c in cols[:-1]:
-                if rsub.get(c) is None:
-                    rsub[c] = OrderedDict()
-                rsub = rsub[c]
-            rsub[cols[-1]] = row[col]
+            if cols[0] in ('location', 'metadata'):
+                rsub = r
+                for c in cols[:-1]:
+                    if rsub.get(c) is None:
+                        rsub[c] = OrderedDict()
+                    rsub = rsub[c]
+                rsub[cols[-1]] = row[col]
         manifest.append(r)
     fname = '../manifests/{}_manifest.json'.format(survey)
     with open(fname, 'w') as f:
