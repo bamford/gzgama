@@ -76,8 +76,14 @@ for region in ('09', '12', '15'):
         r['group_name'] = survey
         r['group_type'] = 'survey'
         for col in row.colnames:
-            r[col] = row[col]
+            cols = col.split('.')
+            rsub = r
+            for c in cols[:-1]:
+                if rsub.get(c) is None:
+                    rsub[c] = OrderedDict()
+                rsub = rsub[c]
+            rsub[cols[-1]] = row[col]
         manifest.append(r)
     fname = '../manifests/{}_manifest.json'.format(survey)
     with open(fname, 'w') as f:
-        json.dump(manifest, f, indent=0, separators=(',', ': '))
+        json.dump(manifest, f, indent=2, separators=(',', ': '))
